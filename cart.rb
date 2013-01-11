@@ -1,4 +1,3 @@
-
 module Shop
   class Cart
     def initialize
@@ -12,6 +11,13 @@ module Shop
     end
     def remove_item(item)
       @items.delete(item)
+    end
+    def total
+      total = 0.0
+      @items.each do |i|
+        total += i.price
+      end
+      total
     end
   end
 end

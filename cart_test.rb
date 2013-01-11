@@ -27,12 +27,12 @@ class CartTest < Test::Unit::TestCase
     c = Cart.new
     p1 = Product.new
     p1.name = "p1"
-    p1.price = "100.33"
+    p1.price = 100.33
     c.add_item(p1)
     p1 = Product.new
     p1.name = "p2"
-    p1.price = "219.02"
+    p1.price = 219.02
     c.add_item(p1)
-    assert_equal c.total, 319.38
+    assert_equal c.total, 319.35
   end
 end
