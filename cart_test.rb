@@ -1,4 +1,3 @@
-
 require 'test/unit'
 require './cart'
 require './product'
@@ -40,5 +39,17 @@ class CartTest < Test::Unit::TestCase
     p1.price = 219.02
     c.add_item(p1)
     assert_equal c.total, 319.35
+  end
+  def test_can_apply_discount
+    c = Cart.new
+    p1 = Product.new
+    p1.name = "p1"
+    p1.price = 100.00
+    c.add_item(p1)
+    p1 = Product.new
+    p1.price = 200.00
+    c.add_item(p1)
+    c.apply_discount 20
+    assert_equal c.total, 240.00
   end
 end
