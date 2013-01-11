@@ -12,15 +12,21 @@ class CartTest < Test::Unit::TestCase
   end
   def test_can_add_to_cart_and_size_increases
     c = Cart.new
-    c.add_item(1)
+    p1 = Product.new
+    p1.name = "p1"
+    p1.price = 100.33
+    c.add_item(p1)
     assert_equal c.size, 1
-    c.add_item(2)
+    c.add_item(p1)
     assert_equal c.size, 2
   end
   def test_can_remove_items_from_cart
     c = Cart.new
-    c.add_item(1)
-    c.remove_item(1)
+    p1 = Product.new
+    p1.name = "p1"
+    p1.price = 100.33
+    c.add_item(p1)
+    c.remove_item(p1)
     assert_equal c.size, 0
   end
   def test_correctly_computes_items_total_value
